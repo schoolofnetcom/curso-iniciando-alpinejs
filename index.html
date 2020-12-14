@@ -8,7 +8,7 @@
 <body>
     <h1>AlpineJS - Aula 1</h1>
 
-    <div x-modal="{ open: false }">
+    <div x-data="{ open: false }">
         <button @click="open = true">Open Dropdown</button>
     
         <ul
@@ -27,6 +27,7 @@
         <div x-show="tab === 'bar'">Tab Bar</div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> -->
+    <script src="public/js/bundle.js"></script>
 </body>
 </html>

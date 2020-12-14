@@ -1,0 +1,33 @@
+{
+  "name": "alpine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schoolofnetcom/curso-iniciando-alpinejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schoolofnetcom/curso-iniciando-alpinejs/issues"
+  },
+  "homepage": "https://github.com/schoolofnetcom/curso-iniciando-alpinejs#readme",
+  "dependencies": {
+    "alpinejs": "^2.7.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
+  }
+}
