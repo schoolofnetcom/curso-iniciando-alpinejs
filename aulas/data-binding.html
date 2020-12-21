@@ -1,21 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Data Binding</title>
-</head>
-<body>
-    <h1>Trabalhando com Data Binding</h1>
+<html>
+    <style>
+        .red {
+            color: red;
+        }
 
-    <!-- x-bind -->
-    
-    <!-- x-text -->
-    
-    <!-- x-html -->
-    
-	<!-- x-model -->
+        .green {
+            color: green;
+        }
+    </style>
 
-    <script src="public/js/bundle.js"></script>
-</body>
+    <body>
+        <h1>Data Binding</h1>
+
+        <!-- x-model | x-bind -->
+        <h4>X-BIND E X-MODEL</h4>
+        <div x-data="{ 
+            input: '', 
+            errorMessage: 'Máximo 10 caracteres' }"
+        >
+            <input type="text" x-model="input" >
+            <span 
+                x-bind:class="input.length > 9 ? 'red' : 'green'" x-text="input.length + ' caracteres'">
+            </span>
+            <p 
+                x-bind:class="input.length > 9 ? 'red' : 'green'" x-show="input.length > 9" 
+                x-text="errorMessage">
+            </p>
+        </div>
+        
+        <hr>
+        <h4>X-TEXT</h4>
+
+        <!-- x-text (innerText) -->
+        <div x-data="{ text: 'Meu span' }">
+            <span x-text="text"></span>
+        </div>
+
+        <hr>
+        <h4>X-HTML</h4>
+
+        <!-- x-html (innerHTML) -->
+        <div x-data="{ textHTML: 'Meu paragrafo' }">
+            <p x-html="textHTML"></p>
+        </div>
+
+
+        <script src="./../public/js/bundle.js"></script>
+    </body>
 </html>
