@@ -9,9 +9,30 @@
     <h1>Criando um novo componente com ALPINEJS</h1>
 
     <!-- x-data -->
+    <div x-data="{ mostrar: false }">
+        <button @click="mostrar = mostrar ? false : true">Mostrar</button>
+        <p x-show="mostrar">Minha primeira mensagem</p>
+    </div>
 
     <!-- x-init -->
-    
+    <p 
+        x-data="{mostrar2: true}" 
+        x-show="mostrar2"
+        x-init="mostrar2 = false"
+    >
+        Minha segunda mensagem
+    </p>
+
+    <!-- x-init | setTimeout -->
+    <p 
+        x-data="{show: false}" 
+        x-show="show"
+        x-init="setTimeout(() => {show = true}, 3000)"
+    >
+        Minha terceira mensagem
+    </p>
+
     <script src="./../public/js/bundle.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> -->
 </body>
 </html>
