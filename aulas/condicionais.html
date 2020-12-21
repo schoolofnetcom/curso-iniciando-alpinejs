@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Condicionais</title>
-</head>
-<body>
-    <h1>Criando condicionais</h1>
+<html>
+    <body>
+        <h1>Criando condicionais</h1>
 
-    <!-- x-show -->
+        <!-- x-show -->
+        <div x-data="{ show: false }">
+            <button 
+            @click="show = show ? false : true">Mostrar Lista</button>
+            <ul x-show.transition.duration.2000="show">
+                <li>PHP</li>
+                <li>JAVASCRIPT</li>
+            </ul>
+        </div>
 
-    <!-- x-if -->
+        <!-- x-if -->
+        <div x-data="{ showIf: true }">
+            <template x-if="showIf">
+                <div>
+                    <p>Minha mensagem</p>
+                </div>
+            </template>
+        </div>
 
-    <script src="public/js/bundle.js"></script>
-</body>
+        <script src="./../public/js/bundle.js"></script>
+    </body>
 </html>
