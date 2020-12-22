@@ -5,34 +5,40 @@
             padding-left: 0;
         }
     </style>
-<body>
-    <h1>FOR</h1>
+    <body>
+        <h1>FOR</h1>
 
-    <!-- x-for -->
-    <div x-data="{ data: 10 }">
-        <!-- <template x-for="i in data">
-            <p x-text="i"></p>
-        </template> -->
-
-        <!-- <template x-for="i in data">
-           <div>
+        <!-- x-for -->
+        <div x-data="{ data: 10 }">
+            <!-- ITERAÇÃO SIMPLES -->
+            <!-- 
                 <template x-for="i in data">
                     <p x-text="i"></p>
+                </template> 
+            -->
+
+            <!-- ITERAÇÃO ENCADEADA (NESTED) -->
+            <!-- 
+                <template x-for="i in data">
+                    <div>
+                            <template x-for="i in data">
+                                <p x-text="i"></p>
+                            </template>
+                    </div>
+                </template> 
+            -->
+            
+            <ul x-data="{ names: [], input: '' }">
+                <span x-text="names.join(',')"></span> <br>
+                <input x-model="input">
+                <button @click="names.push(input); input = ''">Add</button>
+                <template x-for="name in names" :key="name">
+                    <li x-text="name"></li>
                 </template>
-           </div>
-        </template> -->
-        
-        <ul x-data="{ names: [], input: '' }">
-            <span x-text="names.join(',')"></span> <br>
-            <input x-model="input">
-            <button @click="names.push(input); input = ''">Add</button>
-            <template x-for="name in names" :key="name">
-                <li x-text="name"></li>
-            </template>
-        </ul>
+            </ul>
 
-    </div>
+        </div>
 
-    <script src="./../public/js/bundle.js"></script>
-</body>
+        <script src="./../public/js/bundle.js"></script>
+    </body>
 </html>
