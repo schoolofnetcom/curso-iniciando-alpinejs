@@ -1,0 +1,54 @@
+<html>
+    <body>
+        <h1>Propriedades mágicas</h1>
+
+        <!-- $refs -->
+        <div x-data >
+            <p x-ref="my_p">Meu paragrafo</p>
+            <button @click="console.log($refs.my_p)">Log</button>
+            <button @click="console.log($refs.my_p.remove())">Apagar</button>
+        </div>
+
+        <hr>
+
+        <!-- $el -->
+        <button x-data @click="console.log($el)">Log $el</button>
+        <button x-data @click="$el.remove()">Delete $el</button>
+        <hr>
+
+        <!-- $event -->
+        <button 
+            x-data 
+            @click="console.log($event.target.innerText)">Event</button>
+        <hr>
+
+        <!-- $dispatch -->
+        <div x-data @myevent="console.log($event.detail)" >
+            <button 
+                @click="$dispatch('myevent', { name: 'thiago', lastname: 'valls' })">Dispatch</button>
+        </div>
+        <hr>
+
+        <!-- $nextTick -->
+        <div x-data="{ user: 'user', admin: false }">
+            <button
+                x-on:click="
+                    user = 'admin';
+                    $nextTick(() => { user == 'admin' ? admin = true : '' });
+                "
+            >Next Tick</button>
+            <input x-show="admin">
+        </div>
+        <hr>
+
+        <!-- $watch -->
+        <div 
+            x-data="{ show: true }"
+            x-init="$watch('show', (value) => console.log(value))"
+        >
+            <button @click="show = ! show">Watch</button>
+        </div>
+
+        <script src="./../public/js/bundle.js"></script>
+    </body>
+</html>
