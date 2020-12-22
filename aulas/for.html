@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Repetições com For</title>
-</head>
+<html>
+    <style>
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+    </style>
 <body>
-    <h1>Trabalhando com FOR</h1>
+    <h1>FOR</h1>
 
     <!-- x-for -->
+    <div x-data="{ data: 10 }">
+        <!-- <template x-for="i in data">
+            <p x-text="i"></p>
+        </template> -->
 
-    <script src="public/js/bundle.js"></script>
+        <!-- <template x-for="i in data">
+           <div>
+                <template x-for="i in data">
+                    <p x-text="i"></p>
+                </template>
+           </div>
+        </template> -->
+        
+        <ul x-data="{ names: [], input: '' }">
+            <span x-text="names.join(',')"></span> <br>
+            <input x-model="input">
+            <button @click="names.push(input); input = ''">Add</button>
+            <template x-for="name in names" :key="name">
+                <li x-text="name"></li>
+            </template>
+        </ul>
+
+    </div>
+
+    <script src="./../public/js/bundle.js"></script>
 </body>
 </html>
