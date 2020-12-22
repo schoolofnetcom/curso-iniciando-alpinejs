@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Eventos</title>
-</head>
+<html>
 <body>
-    <h1>Trabalhando com Eventos</h1>
+    <h1>Eventos</h1>
 
     <!-- x-on -->
+    <div x-data="{ show: false }">
+        <p x-show="show">Minha mensagem</p>
+        <button x-on:click="show = true">Mostrar Clique</button>
+        <hr>
+        <a x-on:click.prevent="show = true" href="#">Mostrar Tag a</a> 
+        <hr>
+        <button @mouseover="show = true">Hover</button>
+        <hr>
+        <button @mouseenter="show = true">MOUSE ENTER</button> 
+        <hr>
+        <button @mouseleave="show = true">MOUSE LEAVE</button>
+        <hr>
+        <button x-on:click="myAlert()">Alert function</button> <br>
+        <div x-on:resize.window="show = window.outerWidth > 768 ? true : false"></div>
+    </div>
 
-    <script src="public/js/bundle.js"></script>
+    <script src="./../public/js/bundle.js"></script>
+    <script>
+        function myAlert() {
+            alert('Minha mensagem alert');
+        }
+    </script>
 </body>
 </html>
